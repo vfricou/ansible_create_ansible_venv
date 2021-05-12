@@ -4,8 +4,8 @@
   hosts:
     - localhost
   vars:
-    base_venv_path: '/home/vfricou/venv/ansible'
-    base_requirements_path: '/home/vfricou/venv/ansible/requirements'
+    base_venv_path: '${HOME}/venv/ansible'
+    base_requirements_path: '${HOME}/venv/ansible/requirements'
     ansible_versions:
       - "2.8"
       - "2.9"
