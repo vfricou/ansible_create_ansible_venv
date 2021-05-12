@@ -1,0 +1,33 @@
+---
+- name: Create ansible venv
+  gather_facts: false
+  hosts:
+    - localhost
+  vars:
+    base_venv_path: '/home/vfricou/venv/ansible'
+    base_requirements_path: '/home/vfricou/venv/ansible/requirements'
+    ansible_versions:
+      - "2.8"
+      - "2.9"
+      - "2.10"
+      - "latest"
+  tasks:
+    - name: create required venv
+      command: "python3 -m venv {{ base_venv_path }}/ansible-{{ item }}"
+      with_items:
+        - "{{ ansible_versions }}"
+
+    - name: upgrade pip
+      pip:
+        virtualenv: "{{ base_venv_path }}/ansible-{{ item }}"
+        name: pip
+        state: latest
+      with_items:
+        - "{{ ansible_versions }}"
+
+    - name: install ansible venv
+      pip:
+        virtualenv: "{{ base_venv_path }}/ansible-{{ item }}"
+        requirements: "{{ base_requirements_path }}/ansible-{{ item }}-requirements.txt"
+      with_items:
+        - "{{ ansible_versions }}"
