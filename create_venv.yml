@@ -12,11 +12,6 @@
       - "2.10"
       - "latest"
   tasks:
-    - name: create required venv
-      command: "python3 -m venv {{ base_venv_path }}/ansible-{{ item }}"
-      with_items:
-        - "{{ ansible_versions }}"
-
     - name: upgrade pip
       pip:
         virtualenv: "{{ base_venv_path }}/ansible-{{ item }}"
