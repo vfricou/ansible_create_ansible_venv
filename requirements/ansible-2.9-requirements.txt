@@ -1,4 +1,6 @@
 ansible<2.10
 ansible-lint
 molecule
+molecule-docker
+molecule-podman
 ansible-autodoc
