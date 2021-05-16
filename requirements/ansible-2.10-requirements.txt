@@ -6,4 +6,4 @@ molecule
 molecule-docker
 molecule-podman
 ansible-autodoc
-
+netaddr

@@ -12,6 +12,12 @@
       - "2.10"
       - "latest"
   tasks:
+    - name: ensure required folders exists
+      file:
+        path: '{{ item }}'
+        mode: 0755
+      with_items:
+        - '{{ base_venv_path }}'
     - name: upgrade pip
       pip:
         virtualenv: "{{ base_venv_path }}/ansible-{{ item }}"
