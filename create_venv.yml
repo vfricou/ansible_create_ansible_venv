@@ -10,6 +10,8 @@
       - "2.8"
       - "2.9"
       - "2.10"
+      - "3"
+      - "4"
   tasks:
     - name: ensure required folders exists
       file:
@@ -27,7 +29,7 @@
         - "{{ ansible_versions }}"
 
     - name: install ansible venv
-       pip:
+      pip:
         virtualenv: "{{ base_venv_path }}/ansible-{{ item }}"
         requirements: "{{ base_requirements_path }}/ansible-{{ item }}-requirements.txt"
         state: latest

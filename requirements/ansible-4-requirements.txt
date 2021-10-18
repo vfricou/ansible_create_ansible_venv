@@ -1,0 +1,9 @@
+ansible<5
+yamllint
+ansible-lint
+flake8
+molecule
+molecule-docker
+molecule-podman
+ansible-autodoc
+netaddr
